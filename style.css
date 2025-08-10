@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f7f9fc; /* Branco suave */
+    color: #333;
+}
+
+/* Top bar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #2196f3; /* Azul ciano suave */
+    border-radius: 12px;
+    margin: 10px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Efeito hover */
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #d0eaff; /* Branco azulado suave */
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Botão hamburguer (mobile) */
+.menu-toggle {
+    display: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: white;
+}
+
+/* Conteúdo principal */
+.container {
+    display: flex;
+    align-items: stretch; /* Faz os filhos terem mesma altura */
+    justify-content: space-between;
+    padding: 40px;
+    gap: 40px;
+}
+
+/* Caixa de texto */
+.sobre-nasc {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sobre-nasc h2 {
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+.sobre-nasc p {
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Imagem */
+.imagem-nasc {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.imagem-nasc img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantém proporção preenchendo */
+    border-radius: 12px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Responsivo para celular */
+@media (max-width: 768px) {
+    nav {
+        position: absolute;
+        top: 70px;
+        right: 10px;
+        background-color: #2196f3;
+        border-radius: 12px;
+        width: calc(100% - 20px);
+        max-height: 0;
+        overflow: hidden;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav.active {
+        max-height: 300px; /* Altura do menu expandido */
+    }
+
+    /* No celular, texto e imagem ficam empilhados */
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .imagem-nasc {
+        margin-top: 20px;
+    }
+
+    .imagem-nasc img {
+        height: auto;
+        max-width: 100%;
+    }
+}
